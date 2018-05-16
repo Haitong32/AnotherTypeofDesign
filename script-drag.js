@@ -1,11 +1,13 @@
-$(document).ready(function(){
-     $('body').jGravity({
-          target: 'everything',
-          // ignoreClass: 'ignoreMe',
-          weight: 20,
-          depth: 10,
-          // drag: true
+$(document).ready(function() {{
+          $('body').jGravity({
+               target: 'everything',
+               // ignoreClass: 'ignoreMe',
+               weight: 25,
+               depth: 5,
+               drag: true
+          });
      });
+
      var flag = false;
      var cur = {
          x:0,
