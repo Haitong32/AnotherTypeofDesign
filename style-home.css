@@ -15,6 +15,7 @@ body{
 .text{
   position:absolute;
   margin-top: 15%;
+  width: 100px;
   /* border-radius:20px; */
 }
 .text img{
@@ -22,21 +23,35 @@ body{
   display: block;
 }
 .line img{
-  width:300px;
+  width:100px;
   display:block;
+  transform: rotate(15deg);
+}
+.line{
+  position:absolute;
+  margin-top: 15%;
+  /* border-radius:20px; */
 }
 
-.button{
+/* .button{
   z-index: 1000;
   margin-left: 32%;
   margin-top: 10%;
   position: absolute;
-}
-#dot{
+} */
+/* #dot{
   /* position: fixed; */
-  width: 150px;
+  /* width: 150px;
+} */
+/* #ling{
+  margin-top: 150%;
+  margin-left: -70%;
 }
-/* #she{
+#zhong{
+  margin-top: 300%;
+  margin-left: 70%;
+}
+#she{
   margin-top: 415%;
   margin-left: 10%;
 }
