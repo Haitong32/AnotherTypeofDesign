@@ -6,14 +6,84 @@ $(document).ready(function(){
           depth: 10,
           // drag: true
      });
-     var div = document.getElementById('ling2');
-    div.addEventListener('touchmove', function(event) {
-    event.preventDefault();//阻止其他事件
-    // 如果这个元素的位置内只有一个手指的话
-    if (event.targetTouches.length == 1) {
-        var touch = event.targetTouches[0];  // 把元素放在手指所在的位置
-        div.style.left = touch.pageX + 'px';
-        div.style.top = touch.pageY + 'px';
-    }
-}, false);
+     var flag = false;
+     var cur = {
+         x:0,
+         y:0
+     }
+     var nx,ny,dx,dy,x,y ;
+     function down(){
+         flag = true;
+         var touch ;
+         if(event.touches){
+             touch = event.touches[0];
+         }else {
+             touch = event;
+         }
+         cur.x = touch.clientX;
+         cur.y = touch.clientY;
+         dx = div2.offsetLeft;
+         dy = div2.offsetTop;
+     }
+     function move(){
+         if(flag){
+             var touch ;
+             if(event.touches){
+                 touch = event.touches[0];
+             }else {
+                 touch = event;
+             }
+             nx = touch.clientX - cur.x;
+             ny = touch.clientY - cur.y;
+             x = dx+nx;
+             y = dy+ny;
+             div2.style.left = x+"px";
+             div2.style.top = y +"px";
+             //阻止页面的滑动默认事件
+             document.addEventListener("touchmove",function(){
+                 event.preventDefault();
+             },false);
+         }
+     }
+     var div2 = document.getElementById("ling2");
+     div2.addEventListener("mousedown",function(){
+         down();
+     },false);
+     div2.addEventListener("touchstart",function(){
+         down();
+     },false)
+     div2.addEventListener("mousemove",function(){
+         move();
+     },false);
+     div2.addEventListener("touchmove",function(){
+         move();
+     },false)
+     document.body.addEventListener("mouseup",function(){
+         flag = false;
+     },false);
+     div2.addEventListener("touchend",function(){
+         flag = false;
+     },false)
+
+     var div3 = document.getElementById("text");
+     div3.addEventListener("mousedown",function(){
+         down();
+     },false);
+     div3.addEventListener("touchstart",function(){
+         down();
+     },false)
+     div3.addEventListener("mousemove",function(){
+         move();
+     },false);
+     div3.addEventListener("touchmove",function(){
+         move();
+     },false)
+     document.body.addEventListener("mouseup",function(){
+         flag = false;
+     },false);
+     div3.addEventListener("touchend",function(){
+         flag = false;
+     },false)
+
+
   });
