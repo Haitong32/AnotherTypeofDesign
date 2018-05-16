@@ -50,7 +50,7 @@ $(document).ready(function(){
          function end(){
              flag = false;
          }
-         var div2 = document.getElementById("text");
+         var div2 = document.getElementById("ling");
          div2.addEventListener("mousedown",function(){
              down();
          },false);
