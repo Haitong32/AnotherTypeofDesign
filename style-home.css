@@ -1,0 +1,46 @@
+body{
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height:100%;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+.wrap, .wrap2, .wrap3{
+  display:flex;
+  justify-content: center;
+  width:auto;
+}
+
+.text{
+  position:absolute;
+  margin-top: 15%;
+  /* border-radius:20px; */
+}
+.text img{
+  width:100px;
+  display: block;
+}
+.line img{
+  width:300px;
+  display:block;
+}
+
+.button{
+  z-index: 1000;
+  margin-left: 32%;
+  margin-top: 10%;
+  position: absolute;
+}
+#dot{
+  /* position: fixed; */
+  width: 150px;
+}
+/* #she{
+  margin-top: 415%;
+  margin-left: 10%;
+}
+#ji{
+  margin-top: 410%;
+  margin-left: 120%;
+} */
