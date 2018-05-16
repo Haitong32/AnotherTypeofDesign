@@ -12,18 +12,16 @@ body{
   width:auto;
 }
 
-/* .text{ */
-  /* position:absolute; */
+.text{
+  position:absolute;
   /* margin-top: 15%; */
-  /* width: 100px; */
+  width: 100px;
   /* border-radius:20px; */
-/* } */
-img{
+}
+.text img{
   width:100px;
   display: block;
-  position:absolute;
 }
-
 
 /* .button{
   z-index: 1000;
