@@ -1,7 +1,7 @@
 body{
   overflow-x: hidden;
   overflow-y: hidden;
-  height:100%;
+  height:auto;
   width:100%;
   margin: 0;
   padding: 0;
@@ -9,14 +9,24 @@ body{
 
 @-webkit-keyframes fontchange
 {
-from {width: 10px;}
-to {opacity: 100px;}
+  0%   {width:0px;height:80px}
+  50%  {width:300px;height:80px}
+  100% {width:0px;height:80px}
 }
-.wrap{
+/* .wrap{
   display:flex;
-  justify-content: center;
+  text-align: center;
   width:auto;
+} */
+/* .text{
+  height:80px;
+
+} */
+img{
+  height:80px;
+  width:80px;
 }
-.text{
-  width:100px;
+#yi{
+  -webkit-animation: fontchange 3s infinite;
+  /* height:8px; */
 }
