@@ -1,19 +1,3 @@
-<html><head>
-<meta charset="utf-8">
-<title>jquery漂浮广告代码-jq22.com</title>
-<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-<style>
-</style>
-</head>
-<body>
-<div id="imgDiv" style="position: absolute; left: 100px; top: 26px;">
-    <link rel="stylesheet" href="style-drag.css">
-    <div><img class="text"id="ling" src="ling.png">
-         <img class="text"id="yi" src="yi.png">
-    </div>
-</div>
-
-<script>
 var xin = true,
     yin = true;
 var step = 1;
@@ -56,15 +40,10 @@ function move() {
         left: left
     })
 }
-// $(function() {
-//     $("#a").click(function() {
-//         var b = $("#a").parent();
-//         $(b).remove();
-//     })
-// })
-// $("#imgDiv").draggable();
-</script>
-
-
-
-</body></html>
+$(function() {
+    $("#a").click(function() {
+        var b = $("#a").parent();
+        $(b).remove();
+    })
+})
+$("#imgDiv").draggable();

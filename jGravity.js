@@ -140,9 +140,9 @@ init();
 function init() {
 	canvas = document.getElementById('canvas');
 
-	document.ontouchstart = onDocumentMouseDown;
-	document.ontouchend = onDocumentMouseUp;
-	document.ontouchmove = onDocumentMouseMove;
+	document.onmousedown = onDocumentMouseDown;
+	document.onmouseup = onDocumentMouseUp;
+	document.onmousemove = onDocumentMouseMove;
 
 	// init box2d
 	worldAABB = new b2AABB();
@@ -171,8 +171,8 @@ function init() {
 		element.style.left = properties[i][0] + 'px';
 		element.style.top = properties[i][1] + 'px';
 
-		element.ontouchstart = onElementMouseDown;
-		element.ontouchende = onElementMouseUp;
+		element.onmousedown = onElementMouseDown;
+		element.onmouseup = onElementMouseUp;
 
 		bodies[i] = createBox(world, properties[i][0] + (properties[i][2] >> 1), properties[i][1] + (properties[i][3] >> 1), properties[i][2] / 2, properties[i][3] / 2, false);
 	}
