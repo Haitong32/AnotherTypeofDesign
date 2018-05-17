@@ -6,48 +6,66 @@ $(document).ready(function(){
        drag: true
   });
 
-  var proto =  $.ui.mouse.prototype,
-  _mouseInit = proto._mouseInit;
-
-  $.extend( proto, {
-      _mouseInit: function() {
-          this.element
-          .bind( "touchstart." + this.widgetName, $.proxy( this, "_touchStart" ) );
-          _mouseInit.apply( this, arguments );
-      },
-
-      _touchStart: function( event ) {
-           this.element
-          .bind( "touchmove." + this.widgetName, $.proxy( this, "_touchMove" ) )
-          .bind( "touchend." + this.widgetName, $.proxy( this, "_touchEnd" ) );
-
-          this._modifyEvent( event );
-
-          $( document ).trigger($.Event("mouseup")); //reset mouseHandled flag in ui.mouse
-          this._mouseDown( event );
-
-          //return false;
-      },
-
-      _touchMove: function( event ) {
-          this._modifyEvent( event );
-          this._mouseMove( event );
-      },
-
-      _touchEnd: function( event ) {
-          this.element
-          .unbind( "touchmove." + this.widgetName )
-          .unbind( "touchend." + this.widgetName );
-          this._mouseUp( event );
-      },
-
-      _modifyEvent: function( event ) {
-          event.which = 1;
-          var target = event.originalEvent.targetTouches[0];
-          event.pageX = target.clientX;
-          event.pageY = target.clientY;
+  var flag = false;
+  var cur = {
+      x:0,
+      y:0
+  }
+  var nx,ny,dx,dy,x,y ;
+  function down(){
+      flag = true;
+      var touch ;
+      if(event.touches){
+          touch = event.touches[0];
+      }else {
+          touch = event;
       }
-
-  });
-
-});  
+      cur.x = touch.clientX;
+      cur.y = touch.clientY;
+      dx = div2.offsetLeft;
+      dy = div2.offsetTop;
+  }
+  function move(){
+      if(flag){
+          var touch ;
+          if(event.touches){
+              touch = event.touches[0];
+          }else {
+              touch = event;
+          }
+          nx = touch.clientX - cur.x;
+          ny = touch.clientY - cur.y;
+          x = dx+nx;
+          y = dy+ny;
+          div2.style.left = x+"px";
+          div2.style.top = y +"px";
+          //阻止页面的滑动默认事件
+          document.addEventListener("touchmove",function(){
+              event.preventDefault();
+          },false);
+      }
+  }
+  //鼠标释放时候的函数
+  function end(){
+      flag = false;
+  }
+  var div2 = document.getElementsByClassName("text");
+  div2.addEventListener("mousedown",function(){
+      down();
+  },false);
+  div2.addEventListener("touchstart",function(){
+      down();
+  },false)
+  div2.addEventListener("mousemove",function(){
+      move();
+  },false);
+  div2.addEventListener("touchmove",function(){
+      move();
+  },false)
+  document.body.addEventListener("mouseup",function(){
+      end();
+  },false);
+  div2.addEventListener("touchend",function(){
+      end();
+  },false);
+});
