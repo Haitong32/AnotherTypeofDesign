@@ -5,4 +5,6 @@ $(document).ready(function(){
        depth: 10,
        drag: true
   });
+
+  $(".text").draggable();
     });
