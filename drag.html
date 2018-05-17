@@ -1,92 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>适配移动端的拖动效果</title>
-    <style>
-        #div1{
-            height: 1000px;
-        }
-        #div2{
-            position: absolute;
-            top:0;
-            left:0;
-            width: 100px;
-            height: 100px;
-            background: #bbbbbb;
-        }
-        img{
-          width:100px;
-        }
-    </style>
+<html><head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		html,body{width: 100%; height: 100%;}
+		#container{width:100%; height: 100%; position:relative;}
+	</style>
 </head>
 <body>
-<div id="div1">
-    <div id="div2"><img id="ling2" src="ling2.png"></div>
-</div>
-<script>
-    var flag = false;
-    var cur = {
-        x:0,
-        y:0
-    }
-    var nx,ny,dx,dy,x,y ;
-    function down(){
-        flag = true;
-        var touch ;
-        if(event.touches){
-            touch = event.touches[0];
-        }else {
-            touch = event;
-        }
-        cur.x = touch.clientX;
-        cur.y = touch.clientY;
-        dx = div2.offsetLeft;
-        dy = div2.offsetTop;
-    }
-    function move(){
-        if(flag){
-            var touch ;
-            if(event.touches){
-                touch = event.touches[0];
-            }else {
-                touch = event;
-            }
-            nx = touch.clientX - cur.x;
-            ny = touch.clientY - cur.y;
-            x = dx+nx;
-            y = dy+ny;
-            div2.style.left = x+"px";
-            div2.style.top = y +"px";
-            //阻止页面的滑动默认事件
-            document.addEventListener("touchmove",function(){
-                event.preventDefault();
-            },false);
-        }
-    }
-    //鼠标释放时候的函数
-    function end(){
-        flag = false;
-    }
-    var div2 = document.getElementById("div2");
-    div2.addEventListener("mousedown",function(){
-        down();
-    },false);
-    div2.addEventListener("touchstart",function(){
-        down();
-    },false)
-    div2.addEventListener("mousemove",function(){
-        move();
-    },false);
-    div2.addEventListener("touchmove",function(){
-        move();
-    },false)
-    document.body.addEventListener("mouseup",function(){
-        end();
-    },false);
-    div2.addEventListener("touchend",function(){
-        end();
-    },false);
+
+<div id="container"><div style="position: absolute; left: 0px; top: 0px; height: 90px; width: 90px; border-radius: 50%; background: url(&quot;img/paopao1.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.66; transform: translate(961px, 32px); text-align: center; line-height: 90px; font-size: 12px;">撞50次改大小</div><div style="position: absolute; left: 0px; top: 0px; height: 84px; width: 84px; border-radius: 50%; background: url(&quot;img/paopao2.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.99; transform: translate(198px, 119px); text-align: center; line-height: 84px; font-size: 12px; z-index: 1;">撞的心发慌</div><div style="position: absolute; left: 0px; top: 0px; height: 88px; width: 88px; border-radius: 50%; background: url(&quot;img/paopao1.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.64; transform: translate(50px, 160px); text-align: center; line-height: 88px; font-size: 12px; z-index: 1;">我要废了你</div><div style="position: absolute; left: 0px; top: 0px; height: 94px; width: 94px; border-radius: 50%; background: url(&quot;img/paopao5.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.95; transform: translate(351px, 53px); text-align: center; line-height: 94px; font-size: 12px; z-index: 1;">撞50次改大小</div><div style="position: absolute; left: 0px; top: 0px; height: 110px; width: 110px; border-radius: 50%; background: url(&quot;img/paopao2.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.83; transform: translate(866px, 349px); text-align: center; line-height: 110px; font-size: 12px;">来啊互相伤害</div><div style="position: absolute; left: 0px; top: 0px; height: 110px; width: 110px; border-radius: 50%; background: url(&quot;img/paopao2.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.94; transform: translate(690px, 494px); z-index: 1; text-align: center; line-height: 110px; font-size: 12px;">举头天花板</div><div style="position: absolute; left: 0px; top: 0px; height: 112px; width: 112px; border-radius: 50%; background: url(&quot;img/paopao1.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.97; transform: translate(873px, 112px); text-align: center; line-height: 112px; font-size: 12px; z-index: 1;">我要废了你</div><div style="position: absolute; left: 0px; top: 0px; height: 88px; width: 88px; border-radius: 50%; background: url(&quot;img/paopao4.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.74; transform: translate(106px, 636px); text-align: center; line-height: 88px; font-size: 12px; z-index: 1;">我要废了你</div><div style="position: absolute; left: 0px; top: 0px; height: 96px; width: 96px; border-radius: 50%; background: url(&quot;img/paopao3.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.61; transform: translate(644px, 25px); text-align: center; line-height: 96px; font-size: 12px;">撞的心发慌</div><div style="position: absolute; left: 0px; top: 0px; height: 84px; width: 84px; border-radius: 50%; background: url(&quot;img/paopao2.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.95; transform: translate(955px, 520px); text-align: center; line-height: 84px; font-size: 12px; z-index: 1;">试试就试试</div><div style="position: absolute; left: 0px; top: 0px; height: 96px; width: 96px; border-radius: 50%; background: url(&quot;img/paopao3.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.67; transform: translate(653px, 206px); text-align: center; line-height: 96px; font-size: 12px;">试试就试试</div><div style="position: absolute; left: 0px; top: 0px; height: 88px; width: 88px; border-radius: 50%; background: url(&quot;img/paopao1.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.94; transform: translate(795px, 207px); text-align: center; line-height: 88px; font-size: 12px; z-index: 1;">再撞下试试</div><div style="position: absolute; left: 0px; top: 0px; height: 86px; width: 86px; border-radius: 50%; background: url(&quot;img/paopao5.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.93; transform: translate(518px, 167px); z-index: 1; text-align: center; line-height: 86px; font-size: 12px;">撞三次改颜色</div><div style="position: absolute; left: 0px; top: 0px; height: 114px; width: 114px; border-radius: 50%; background: url(&quot;img/paopao1.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.72; transform: translate(344px, 171px); text-align: center; line-height: 114px; font-size: 12px;">撞的心发慌</div><div style="position: absolute; left: 0px; top: 0px; height: 116px; width: 116px; border-radius: 50%; background: url(&quot;img/paopao2.png&quot;) 0% 0% / cover; border: 0px solid rgb(0, 0, 0); opacity: 0.96; transform: translate(114px, 325px); text-align: center; line-height: 116px; font-size: 12px;">我要废了你</div></div>
+
+<script src="js/collision.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+function rand(m,n){return m+parseInt((n-m)*Math.random());}
+var says=['撞三次改颜色','谁撞我','不想活了','来啊互相伤害','我要废了你','撞50次改大小','再撞下试试','试试就试试','窗前明月光','撞的心发慌','举头天花板','低头一肥皂'];
+var saysLength=says.length;
+var oC=document.getElementById('container');
+var mxwidth=oC.offsetWidth;
+var mxheight=oC.offsetHeight;
+
+
+var oB=new BallBox('container');
+oB.ballRun();
+for(var i=0;i<15;i++){
+	var b=rand(40,60);
+	var x=rand(b,mxwidth-b);
+	var y=rand(b,mxheight-b);
+	var ball=new Ball({
+		'b':b,
+		'x':x,
+		'y':y,
+		'sx':rand(1,4),
+		'sy':rand(1,4),
+		'c':'url(img/paopao'+rand(1,6)+'.png)',
+		'opa':rand(60,100)/100,
+		'callBack':function(n){
+			//this.setB(rand(30,50));
+			//this.setM();
+			this.setOpa(rand(60,100)/100);
+			if(n%3==0){this.setC('url(img/paopao'+rand(1,6)+'.png)')};//撞三次改变下图片
+			if(n%50==0){
+				this.setB(rand(40+parseInt((n>1000?1000:n)/50),60+parseInt((n>1000?1000:n)/50)));
+			}//撞50次改大小
+			this.setHTML(says[rand(0,saysLength)]);
+		}
+	});
+	oB.addBall(ball);
+}
 </script>
-</body>
-</html>
+
+
+</body></html>
