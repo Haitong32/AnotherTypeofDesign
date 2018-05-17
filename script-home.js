@@ -4,7 +4,6 @@ $(document).ready(function(){
        weight: 20,
        depth: 10,
   });
-  $(".text").Draggable();
 
      interact('.draggable')
   .draggable({
@@ -51,5 +50,5 @@ $(document).ready(function(){
 
   // this is used later in the resizing and gesture demos
   window.dragMoveListener = dragMoveListener;
-  
+
     });
