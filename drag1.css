@@ -1,0 +1,25 @@
+body{
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height:auto;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+@-webkit-keyframes fontchange
+{
+  0%   {width:0px;height:0px}
+  50%  {width:60px;height:60px}
+  100% {width:0px;height:0px}
+}
+
+img{
+  height:60px;
+  width:60px;
+}
+#yi{
+  /* -webkit-transform:rotate(45deg);  */
+  -webkit-animation: fontchange 3s infinite;
+  /* -webkit-transform-origin: center top; */
+}

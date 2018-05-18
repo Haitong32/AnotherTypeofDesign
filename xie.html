@@ -1,0 +1,91 @@
+<html><head>
+<meta charset="utf-8">
+<title>jquery漂浮广告代码-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
+<link rel="stylesheet" href="drag1.css">
+</head>
+<body>
+<div id="imgDiv1" style="position: absolute;">
+         <img class="text"id="ling" src="ling.png">
+         <img class="text"id="yi" src="yi3.png">
+         <img class="text"id="zhong" src="zhong.png">
+         <img class="text"id="she" src="she.png">
+         <img class="text"id="ji" src="ji.png">
+         <img class="text"id="ling" src="ling.png">
+         <img class="text"id="yi" src="yi3.png">
+         <img class="text"id="zhong" src="zhong.png">
+         <img class="text"id="she" src="she.png">
+         <img class="text"id="ji" src="ji.png">
+         <img class="text"id="ling" src="ling.png">
+         <img class="text"id="yi" src="yi3.png">
+         <img class="text"id="zhong" src="zhong.png">
+         <img class="text"id="she" src="she.png">
+         <img class="text"id="ji" src="ji.png">
+</div>
+<!-- <div id="imgDiv2" style="position: absolute;">
+         <img class="text"id="gong" src="gong.png">
+         <img class="text"id="zuo" src="zuo.png">
+         <img class="text"id="shi2" src="shi2.png">
+</div>
+<div id="imgDiv3" style="position: absolute;">
+         <img class="text"id="ying" src="ying.png">
+         <img class="text"id="zao" src="zao.png">
+         <img class="text"id="shu" src="shu.png">
+</div>
+<div id="imgDiv4" style="position: absolute;">
+         <img class="text"id="shi" src="shi.png">
+         <img class="text"id="yan" src="yan.png">
+         <img class="text"id="shi2" src="shi2.png">
+</div> -->
+
+<script>
+var xin = true,
+    yin = true;
+var step = 1;
+var delay = 10;
+var $obj;
+
+$(function() {
+    $obj = $("#imgDiv1");
+    var time = window.setInterval("move()", delay);
+    $obj.mouseover(function() {
+        clearInterval(time)
+    });
+    $obj.mouseout(function() {
+        time = window.setInterval("move()", delay)
+    });
+});
+
+function move() {
+    var left = $obj.offset().left;
+    var top = $obj.offset().top;
+    var L = T = 0; //左边界和顶部边界
+    var R = $(window).width() - $obj.width(); // 右边界
+    var B = $(window).height() - $obj.height(); //下边界
+    if (left < L) {
+        xin = true; // 水平向右移动
+    }
+    if (left > R) {
+        xin = false;
+    }
+    if (top < T) {
+        yin = true;
+    }
+    if (top > B) {
+        yin = false;
+    }
+    left = left + step * (xin == true ? 1 : -1);
+    top = top + step * (yin == true ? 1 : -1);
+    // 给div 元素重新定位
+    $obj.offset({
+        top: top,
+        left: left
+    })
+}
+
+
+</script>
+
+
+
+</body></html>

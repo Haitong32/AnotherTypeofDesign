@@ -2,28 +2,41 @@
 <meta charset="utf-8">
 <title>jquery漂浮广告代码-jq22.com</title>
 <script src="http://libs.baidu.com/jquery/1.9.1/jquery.min.js"></script>
-<style>
-</style>
+<link rel="stylesheet" href="drag2.css">
 </head>
 <body>
-<div id="imgDiv" style="position: absolute;">
-    <link rel="stylesheet" href="style-drag.css">
-    <div id="wrap"><img class="text"id="ling" src="ling.png">
+<div id="imgDiv1" style="position: absolute;">
+         <img class="text"id="ling" src="ling.png">
          <img class="text"id="yi" src="yi2.png">
          <img class="text"id="zhong" src="zhong.png">
          <img class="text"id="she" src="she.png">
          <img class="text"id="ji" src="ji.png">
+         <img class="text"id="ling" src="ling.png">
+         <img class="text"id="yi" src="yi2.png">
+         <img class="text"id="zhong" src="zhong.png">
+         <img class="text"id="she" src="she.png">
+         <img class="text"id="ji" src="ji.png">
+         <img class="text"id="ling" src="ling.png">
+         <img class="text"id="yi" src="yi2.png">
+         <img class="text"id="zhong" src="zhong.png">
+         <img class="text"id="she" src="she.png">
+         <img class="text"id="ji" src="ji.png">
+</div>
+<!-- <div id="imgDiv2" style="position: absolute;">
          <img class="text"id="gong" src="gong.png">
          <img class="text"id="zuo" src="zuo.png">
          <img class="text"id="shi2" src="shi2.png">
+</div>
+<div id="imgDiv3" style="position: absolute;">
          <img class="text"id="ying" src="ying.png">
          <img class="text"id="zao" src="zao.png">
          <img class="text"id="shu" src="shu.png">
+</div>
+<div id="imgDiv4" style="position: absolute;">
          <img class="text"id="shi" src="shi.png">
          <img class="text"id="yan" src="yan.png">
          <img class="text"id="shi2" src="shi2.png">
-    </div>
-</div>
+</div> -->
 
 <script>
 var xin = true,
@@ -31,8 +44,9 @@ var xin = true,
 var step = 1;
 var delay = 10;
 var $obj;
+
 $(function() {
-    $obj = $("#imgDiv");
+    $obj = $("#imgDiv1");
     var time = window.setInterval("move()", delay);
     $obj.mouseover(function() {
         clearInterval(time)
@@ -68,13 +82,8 @@ function move() {
         left: left
     })
 }
-// $(function() {
-//     $("#a").click(function() {
-//         var b = $("#a").parent();
-//         $(b).remove();
-//     })
-// })
-// $("#imgDiv").draggable();
+
+
 </script>
 
 
